@@ -1,21 +1,29 @@
-day_of_the_week = input('what day is today?')
+day_of_the_week = input('what day is it today?')
 if day_of_the_week.lower() == 'monday':
     print('Today is Monday!')
 else:
-    print('Today is not Monday!')
+    print(f''Today is not Monday! It's {day_of_the_week.capitalize()}'')
 
 
-day_of_the_weekend = input('what day is today?')
-if day_of_the_weekend.lower() == 'saturday' or day_of_the_weekend.lower()=='sunday':
-    print('Today is Weekend!')
+day = input('what day is today?')
+if day.lower() == 'saturday' or day.lower()=='sunday':
+     print(f"{day.capitalize()} is a weekend!")
 else:
-    print('Today is Weekday!')
+    print(f"{day.capitalize()} is a weekday day!")
 
 
-hours_worked = 8
-hourly_rate = 50
-weekly_paycheck = hours_worked * hourly_rate * 5
-weekly_paycheck
+hours_worked = 52
+hourly_rate = 40
+
+if hours_worked <= 40:
+    total = hourly_rate * hours_worked
+else:
+    overtime_hours = hours_worked - 40
+    overtime_pay = overtime_hours * 1.5 * hourly_rate
+    regular_pay = 40 * hourly_rate
+    total = regular_pay + overtime_pay
+
+print(f"Total pay is ${total}")
 
 
 
@@ -25,34 +33,37 @@ while i <= 15:
     print(i)
     i += 1
 
-n = 0
-while n <= 100:
-    print(n)
-    n += 2
+i = 0
+while i <= 100:
+    print(i)
+    i += 2
 
-n = 100
-while n >= -10:
-    print(n)
-    n -= 5
+i = 100
+while i >= -10:
+    print(i)
+    i -= 5
 
-n = 2
-while n <= 1000000:
-    print(n)
-    n = n**2
+i = 2
+while i <= 1000000:
+    print(i)
+    i *= i
 
-n = 100
-while n >= 5:
-    print(n)
-    n -= 5
+i = 100
+while i >= 5:
+    print(i)
+    i -= 5
 
 -- b.For Loops
 
-num = input('please type a number')
+num = input('please input a number')
 num = int(num)
-for n in range(1,11):
-    print(f'{num} x {n} = {n * num}')
+for i in range(1,11):
+    print(f'{num} x {i} = {num * i}')
     
 
-for n in range(1,10):
-    print(str(n)*n)
+for i in range(1,10):
+    print(str(i)*i)
+
+odd_number = input(Please input a number between 1 and 50)
+
 

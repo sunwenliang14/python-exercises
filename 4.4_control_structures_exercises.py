@@ -64,6 +64,111 @@ for i in range(1,11):
 for i in range(1,10):
     print(str(i)*i)
 
-odd_number = input(Please input a number between 1 and 50)
+
+user_choise = input('please input a odd number between 1 and 50 ')
+while  user_choise.isdigit() == False or int(user_choise) > 50 or int(user_choise) < 1 or int(user_choise) % 2 ==0:
+    user_choise = input('please input a odd number between 1 and 50 ')
+user_choise = int(user_choise)
+for i in range(1,50):
+    if i % 2 == 0:
+        continue
+    elif i == user_choise :
+        print(f"Skipping {i}")
+    else:
+        print(f"{i} is an odd number.")
 
 
+user_choice = input('Please input a positive number')
+while (user_choice.isdigit() == False  
+            or int(user_choice) <= 0):   
+    print(f"{user_choice} is awesome, but we need a positive number.")
+    user_choice = input("Please input a positive number")
+
+user_choice = int(user_choice)
+for i in range(user_choice + 1):
+    print(i)
+
+user_choice = input('Please input a positive number')
+user_choice = int(user_choice)
+while user_choice >= 1:
+    print(user_choice)
+    user_choice -= 1
+
+
+for i in range(1,101):
+
+    if i % 3 == 0 and i % 5 == 0:
+        print('FizzBuzz')
+    elif i % 5 == 0:
+        print('Buzz')
+    elif i % 3 == 0:
+        print('Fizz')
+    else:
+        print(i)
+        
+
+def get_positive_number():
+    user_choice = input("Please input a positive number ")
+    while (user_choice.isdigit() == False  
+            or int(user_choice) < 1):   
+        print(f"{user_choice} is nice, but we'll need a positive number.")
+        user_choice = input("Please input a positive number")
+
+    user_choice = int(user_choice)
+    return user_choice
+
+choice = "yes"
+while choice in ["y", "yes"]:
+    user_choice = get_positive_number()
+    print(" number | squared | cubed ")
+    for i in range(1, user_choice + 1):
+        print(f"{i}    |   {i**2}    |   {i**3} ")
+    
+    
+    choice = input("Do you want to continue? Type Y or Yes")
+    choice = choice.lower()
+
+print("Thank you!")
+
+
+while True:
+    user_choice = input('please input a numerical number between 0 and 100')
+    user_choice = int(user_choice)
+    if  88 <= user_choice:
+            print(f"{user_choice} is an A")
+    elif 80 <= user_choice:
+            print(f"{user_choice} is an B")
+    elif 67 <= user_choice:
+             print(f"{user_choice} is an C")
+    elif 60 <= user_choice:
+            print(f"{user_choice} is an D")
+    else:
+        print(f"{user_choice} is an F")
+    user_choice = input("Do you want to continue? Type y or Yes. ")
+    if user_choice.lower() in ["y", "yes"]:
+        continue
+    else:
+        print('Thank you!')
+        break
+
+
+    books = [
+    {
+        "title": "Visual Display of Quantitative Information",
+        "author": "Edward Tufte",
+        "genre": "visualization"
+    },
+    {
+        "title": "Deep Learning with Python",
+        "author": "Fracois Challot",
+        "genre": "deep learning"
+    },
+    {
+        "title": "How Charts Lie",
+        "author": "Cario",
+        "genre": "visualization"
+    },
+]
+
+for book in books:
+    print(f"'{book['title']}' by {book['author']} is about {book['genre']}")

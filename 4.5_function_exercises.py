@@ -42,7 +42,7 @@ def apply_discount(original_price, discount):
 
 def handle_commas(s):
     s = s.replace(',', '')
-    return float(s)
+    return int(s)
 
 # 8. Define a function named get_letter_grade. It should accept a number and return the letter grade associated with that number (A-F)
 
@@ -67,18 +67,32 @@ def remove_vowels(s):
 
 # 10. 
 
-def normalize_name(s):
-    s = s.strip().lower().replace(' ', '_')
-    chars = list(s)
-    special_char = ['!','@','#','$','%','&','*','^']
-    
-    return "".join([char for char in chars if char not in special_char])
+def remove_special_characters(string):
+    return ''.join([c for c in string if c.isalnum() or c == ' '])
+
+def normalize_name(string):
+    without_special_chars = remove_special_characters(string)
+    return without_special_chars.lower().strip().replace(' ', '_')
 
 # 11
 
-def cumsum(lst):
-    s = lst.copy()
-    for i in range(1, len(s)):
-        s[i] += s[i-1]
-    return s
-cumsum([1, 2, 3, 4])
+def cumsum(numbers):
+    total = 0
+    cumulative_sums = []
+    for n in numbers:
+        total += n
+        cumulative_sums.append(total)
+    return cumulative_sums
+
+# 1.Create a function named twelveto24. It should accept a string in the format 10:45am or 4:30pm and return a string that is the representation of the time in a 24-hour format. Bonus write a function that does the opposite
+
+def twelveto24(str1): 
+    if str1[-2:] == "AM" and str1[:2] == "12":
+        return "00" + str1[2:-2] 
+    elif str1[-2:] == "AM": 
+        return str1[:-2] 
+    elif str1[-2:] == "PM" and str1[:2] == "12": 
+        return str1[:-2] 
+    else: 
+        return str(int(str1[:2]) + 12) + str1[2:5]
+

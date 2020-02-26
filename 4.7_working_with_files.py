@@ -30,7 +30,7 @@ def show_grocery_list():
             print(item)
 
 # d. Create a function named buy_item. It should accept the name of an item on the grocery list, and remove that item from the list.
-
+ 
 def buy_item(item, grocery_list):
     grocery_list.remove(item)
    

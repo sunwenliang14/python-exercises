@@ -65,6 +65,51 @@ money.min()
 # Bin the data into 4 equally sized intervals and show how many values fall into each bin.
 pd.cut(money, 4).value_counts()
 
+# Plot a histogram of the data. Be sure to include a title and axis labels.
+%matplotlib inline
+import matplotlib.pyplot as plt
+money.plot.hist()
+plt.title('amount of money')
+
+# 3 Use pandas to create a Series from the following exam scores:
+scores = pd.Series([60, 86, 75, 62, 93, 71, 60, 83, 95, 78, 65, 72, 69, 81, 96, 80, 85, 92, 82, 78])
+scores.min()
+scores.max()
+scores.mean()
+scores.median()
+
+# Plot a histogram of the scores
+scores.plot.hist()
+plt.title('distribution of scores')
+
+
+# Convert each of the numbers above into a letter grade. For example, 86 should be a 'B' and 95 should be an 'A'.
+
+def grades(s):
+    if s >= 90:
+        return 'A'
+    elif 80 <= s < 90:
+        return 'B'
+    elif 70 <= s < 80:
+        return 'C'
+    elif 60 <= s < 70:
+        return 'D'
+    else:
+        return 'F'
+scores.apply(grades)
+
+# Write the code necessary to implement a curve. I.e. that grade closest to 100 should be converted to a 100, and that many points should be given to every other score as well.
+
+
+# 4 Use pandas to create a Series from the following string:
+string = pd.Series(list('hnvidduckkqxwymbimkccexbkmqygkxoyndmcxnwqarhyffsjpsrabtjzsypmzadfavyrnndndvswreauxovncxtwzpwejilzjrmmbbgbyxvjtewqthafnbkqplarokkyydtubbmnexoypulzwfhqvckdpqtpoppzqrmcvhhpwgjwupgzhiofohawytlsiyecuproguy'))
+string.value_counts().sort_values()
+
+# How many vowels are in the list?
+string[string.apply(lambda x: x in 'aeiou')].count()
+
+# How many consonants are in the list?
+string[string.apply(lambda x: x not in 'aeiou')].count()
 
 
 

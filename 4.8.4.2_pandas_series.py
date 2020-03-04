@@ -108,7 +108,10 @@ def grades(s):
 scores.apply(grades)
 
 # Write the code necessary to implement a curve. I.e. that grade closest to 100 should be converted to a 100, and that many points should be given to every other score as well.
-
+highest = scores.max()
+diff = 100 - highest
+curved_grades = scores + diff
+curved_grades
 
 # 4 Use pandas to create a Series from the following string:
 string = pd.Series(list('hnvidduckkqxwymbimkccexbkmqygkxoyndmcxnwqarhyffsjpsrabtjzsypmzadfavyrnndndvswreauxovncxtwzpwejilzjrmmbbgbyxvjtewqthafnbkqplarokkyydtubbmnexoypulzwfhqvckdpqtpoppzqrmcvhhpwgjwupgzhiofohawytlsiyecuproguy'))
@@ -120,5 +123,22 @@ string[string.apply(lambda x: x in 'aeiou')].count()
 # How many consonants are in the list?
 string[string.apply(lambda x: x not in 'aeiou')].count()
 
+# Create a series that has all of the same letters, but uppercased
+uppercased_letters = string.str.upper()
+uppercased_letters
+
+# Create a bar plot of the frequencies of the 6 most frequently occuring letters
+six_most_frequent = string.value_counts()[0:6]
+six_most_frequent
+
+labels = list(six_most_frequent.index)
+values = list(six_most_frequent.values)
+print(labels)
+print(values)
 
 
+plt.title("Frequency Distribution of 6 Most Common Letters")
+plt.ylabel("# occurences")
+plt.xlabel("Letter")
+plt.bar(labels, values)
+plt.show()

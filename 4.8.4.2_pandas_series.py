@@ -18,6 +18,8 @@ fruits.value_counts().head(1)
 fruits.value_counts().tail(11)
 
 # g.Write the code to get the longest string from the fruits series.
+# index_of_longest_string = fruits.apply(len).argmax()
+# fruits[index_of_longest_string]
 max(fruits, key = len)
 
 # h. Find the fruit(s) with 5 or more letters in the name.
@@ -39,6 +41,7 @@ def number_of_vowels(s):
 fruits.apply(number_of_vowels)
 
 # l.Use the .apply method and a lambda function to find the fruit(s) containing two or more "o" letters in the name.
+# fruits[fruits.str.count("o") >= 2]
 fruits[fruits.apply(lambda s: s.count('o') >= 2)]
 
 # m.Write the code to get only the fruits containing "berry" in the name
@@ -63,15 +66,20 @@ money.max()
 money.min()
 
 # Bin the data into 4 equally sized intervals and show how many values fall into each bin.
+# bins = pd.cut(prices, 4)
+# bins.value_counts()
 pd.cut(money, 4).value_counts()
 
 # Plot a histogram of the data. Be sure to include a title and axis labels.
 %matplotlib inline
 import matplotlib.pyplot as plt
-money.plot.hist()
+plt.xlabel("$")
+plt.ylabel("# occurences")
 plt.title('amount of money')
+plt.hist(money, bins = 4)
 
 # 3 Use pandas to create a Series from the following exam scores:
+# grades.agg(["mean", "median", "min", "max"])
 scores = pd.Series([60, 86, 75, 62, 93, 71, 60, 83, 95, 78, 65, 72, 69, 81, 96, 80, 85, 92, 82, 78])
 scores.min()
 scores.max()
@@ -79,6 +87,7 @@ scores.mean()
 scores.median()
 
 # Plot a histogram of the scores
+# x = grades.hist()
 scores.plot.hist()
 plt.title('distribution of scores')
 
